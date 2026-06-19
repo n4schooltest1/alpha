@@ -1,0 +1,458 @@
+<!-- <script>
+while (true) {
+
+    const randomNumber = Math.floor(Math.random() * 6) + 1;
+    let attempts = 3;
+    let guessed = false;
+
+    while (attempts > 0) {
+
+        const userGuess = parseInt(prompt("Guess a number between 1 and 6:"));
+
+        if (userGuess === randomNumber) {
+            alert("Congratulations! You guessed the number correctly.");
+            guessed = true;
+            break;
+        } else {
+            attempts--;
+
+            if (attempts > 0) {
+                alert(`Wrong! You have ${attempts} attempts left.`);
+            }
+        }
+    }
+
+    if (!guessed) {
+        alert(`Sorry, you've run out of attempts. The number was ${randomNumber}.`);
+    }
+
+    const playAgain = prompt("Wanna play again? (yes/no)");
+
+    if (playAgain.toLowerCase() !== "yes") {
+        break;
+    }
+}
+</script> -->
+
+<!-- <script>
+while (true) {
+    const user_inp = prompt("Enter a number: ")
+    let Number = parseInt(user_inp)
+
+    factorial = 1
+
+    for (let i = 1; i <= Number; i++) {
+        factorial *= i
+    }
+
+    alert(`The factorial of ${Number} is ${factorial}`)
+
+    const another = prompt("Another number? (y/n)")
+
+    if (another === "n") {
+        break
+    }
+}
+</script> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testing page </title>
+</head>
+<body>
+
+  <p id="test_t">This is a test paragraph.</p>
+
+<script>
+    let text = document.getElementById("test_t");
+
+    text.style.color = "red";
+    text.style.position = "relative";
+    text.style.top = "220px";
+    text.style.textAlign = "center";
+    text.style.fontSize = "50px";
+</script>
+
+</body>
+</html>  -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<title>Images Changer</title>
+
+<style>
+
+        body {
+            margin: 0;
+            height: 100vh;
+
+            background: linear-gradient(135deg, #8eb8e3, #96b2d6, #617fa3d0);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+
+            overflow: hidden;
+        }
+
+        #mainImage {
+            width: 600px;
+            max-width: 90%;
+
+            border-radius: 16px;
+
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+            transition: transform 0.35s ease, opacity 0.35s ease;
+
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .slide-left {
+            transform: translateX(-100%);
+        }
+
+        .thumbs {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 50px;
+        }
+
+        .thumb {
+            width: 120px;
+            height: 80px;
+
+            object-fit: cover;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            opacity: 0.4;
+
+            transition: 0.25s ease;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .thumb.active {
+            opacity: 1;
+            transform: scale(1.05);
+            border: 2px solid #4a6cf7;
+        }
+
+       .gallery {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .changebutton_next,
+        .changebutton_previous {
+            padding: 16px 18px 12px 18px;
+            font-size: 18px;
+            color: white;
+
+            background: rgba(104, 129, 228, 0.9);
+
+            border: none;
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            transition: 0.25s ease;
+
+            opacity: 0.6;
+
+            position: absolute;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+
+            backdrop-filter: blur(6px);
+        }
+
+        .changebutton_previous {
+            left: 10px;
+        }
+
+        .changebutton_next {
+            right: 10px;
+        }
+
+        .changebutton_next:hover,
+        .changebutton_previous:hover {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+            background: rgba(74, 108, 247, 0.95);
+        }
+
+        
+
+
+</style>
+</head>
+
+<body>
+
+<div class="gallery">
+
+    <h1 style="font-family: 'Playfair Display', serif; color: #3b4453; margin-bottom: 10px; font-weight: 600; letter-spacing: 0.5px;">
+    Beautiful Places of Armenia to Explore
+    </h1>
+    <img id="mainImage" src="https://media.istockphoto.com/id/1160098022/photo/hayravank-monastery-on-the-shores-of-lake-sevan-in-armenia.jpg?s=612x612&w=0&k=20&c=fCtO3RRJL2gaWavivHyyGygrNgZ7wj39tMuq1nOCEUI=">
+
+    <button class="changebutton_previous" onclick="changeImg_Previous()"><=</button>
+    <button class="changebutton_next" onclick="changeImg()">=></button>
+
+    <div class="thumbs">
+
+        <img class="thumb active" src="https://media.istockphoto.com/id/1160098022/photo/hayravank-monastery-on-the-shores-of-lake-sevan-in-armenia.jpg?s=612x612&w=0&k=20&c=fCtO3RRJL2gaWavivHyyGygrNgZ7wj39tMuq1nOCEUI=" onclick="changetumbs(this)">
+
+        <img class="thumb" src="https://media.istockphoto.com/id/470970852/photo/the-ancient-monastery-in-the-setting-sun-tatev-armenia.jpg?s=612x612&w=0&k=20&c=5Pkq9a4P7s4euyHWrFATAaPmXXJc5ab9aNLSmDmfIHo=" onclick="changetumbs(this)">
+
+        <img class="thumb" src="https://images.openai.com/static-rsc-4/01YEAhms8hWFErUSvXOSCMpo5LXgrSFQ2ZVXu853MnVp6MqCsIkYBcbNATi0BcsyHEKPIDujslH8KmfVgGivUqTFLi3Vv9WRo4R2z7l7mimhdwaOfL_5RTyZ-Fu_rRssjSvjdHaR3hXGJ0EfmFFvz-QXcIW3YUIdhA8EQAcxKkQGFj20Ngd_P8jGKyRyod2J?purpose=inline" onclick="changetumbs(this)">
+        
+    </div>
+
+</div>
+
+<script>
+
+let currentIndex = 0;
+
+function changeImg() {
+    let mainImage = document.getElementById("mainImage");
+    let thumbs = document.getElementsByClassName("thumb");
+
+    currentIndex = (currentIndex + 1) % thumbs.length;
+
+    mainImage.style.transition = "none";
+    mainImage.style.transform = "translateX(0)";
+    mainImage.style.opacity = "1";
+    
+    mainImage.offsetHeight;
+    
+    mainImage.style.transition = "transform 0.35s ease, opacity 0.35s ease";
+    mainImage.style.transform = "translateX(-100%)";
+    mainImage.style.opacity = "0";
+
+    setTimeout(() => {
+        mainImage.style.transition = "none";
+        mainImage.src = thumbs[currentIndex].src;
+        mainImage.style.transform = "translateX(100%)";
+        mainImage.style.opacity = "0";
+        
+        mainImage.offsetHeight;
+        
+        mainImage.style.transition = "transform 0.35s ease, opacity 0.35s ease";
+        mainImage.style.transform = "translateX(0)";
+        mainImage.style.opacity = "1";
+
+        for (let i = 0; i < thumbs.length; i++) {
+            thumbs[i].classList.remove("active");
+        }
+        thumbs[currentIndex].classList.add("active");
+    }, 200);
+}
+
+function changeImg_Previous() {
+    let mainImage = document.getElementById("mainImage");
+    let thumbs = document.getElementsByClassName("thumb");
+
+    currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
+
+    mainImage.style.transition = "none";
+    mainImage.style.transform = "translateX(0)";
+    mainImage.style.opacity = "1";
+    
+    mainImage.offsetHeight;
+    
+    mainImage.style.transition = "transform 0.35s ease, opacity 0.35s ease";
+    mainImage.style.transform = "translateX(100%)";
+    mainImage.style.opacity = "0";
+
+    setTimeout(() => {
+        mainImage.style.transition = "none";
+        mainImage.src = thumbs[currentIndex].src;
+        mainImage.style.transform = "translateX(-100%)";
+        mainImage.style.opacity ="0";
+        
+        mainImage.offsetHeight;
+        
+        mainImage.style.transition = "transform 0.35s ease, opacity 0.35s ease";
+        mainImage.style.transform = "translateX(0)";
+        mainImage.style.opacity = "1";
+
+        for (let i = 0; i < thumbs.length; i++) {
+            thumbs[i].classList.remove("active");
+        }
+        thumbs[currentIndex].classList.add("active");
+    }, 200);
+}
+
+function changetumbs(clickedThumb) {
+
+    let thumbs = document.getElementsByClassName("thumb");
+
+    for (let i = 0; i < thumbs.length; i++) {
+
+        thumbs[i].classList.remove("active");
+
+        if (thumbs[i] === clickedThumb) {
+            currentIndex = i;
+        }
+    }
+
+    clickedThumb.classList.add("active");
+
+    document.getElementById("mainImage").src = clickedThumb.src;
+}
+
+
+</script>
+
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printing user Input </title>
+</head>
+
+<body>
+
+    <h1>Enter random text: </h1>
+    <input type="text" id="nameInput" placeholder="Your text here">
+    <button onclick="printText()" style="background-color: #4CAF50;">Submit</button>
+    <button onclick="deleteText()" style="background-color: #f44336;">Delete</button>
+
+    <ol id="textOutput" style="white-space: pre-line;"></ol>
+
+    <script>
+       function printText() {
+            const input = document.getElementById("nameInput");
+            const textOutput = document.getElementById("textOutput");
+
+            if (input.value.trim() === "") {
+                return;
+            }
+
+            const listItem = document.createElement("li");
+            listItem.innerText = ` ${input.value} <input type="checkbox">`;
+            textOutput.appendChild(listItem);
+            input.value = "";
+        }
+
+        function deleteText() {
+            const textOutput = document.getElementById("textOutput");
+            const input = document.getElementById("nameInput");
+
+            input.value = "";
+            textOutput.innerText = "";
+        }
+
+    </script>
+
+</body>
+
+
+</html> 
+ -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<title>Change Background with a button</title>
+
+
+<style>
+
+    body{
+        height: 100vh;
+        background: white;
+
+    }
+
+    .change_button_light {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .change_button_dark {
+        background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.195),
+            rgba(0, 0, 255, 0.058)
+        );
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+
+
+</style>
+
+
+</head>
+
+
+<body>
+    
+    <h2>BACKGROUND COLOUR CHANGER</h2>
+
+    <button class="change_button_light" onclick="Change_bg()">Change background</button>
+
+
+
+</body>
+
+
+
+<script>
+
+    function Change_bg() {
+
+        if (document.body.style.background === "black") {
+            document.body.style.background = "white";
+        } else {
+            document.body.style.background = "black";
+        }
+
+    }
+
+</script>
+
+
+
+</html>
