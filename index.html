@@ -403,100 +403,7 @@
                 opacity: 1;
             }
         }
-        /* ========== CONTACT SECTION ========== */
-        .section-contact {
-            position: relative;
-            padding: 60px 20px;
-            background: rgba(11, 31, 59, 0.9);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 2;
-            color: white;
-        }
-
-        .contact-container {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-title {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #fff, #F7C56E);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .contact-subtitle {
-            opacity: 0.8;
-            margin-bottom: 30px;
-        }
-
-        /* ========== FORM STYLES ========== */
-        .contact-form {
-            text-align: left;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px 15px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-            box-sizing: border-box;
-        }
-
-        .form-input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .form-textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-            resize: vertical;
-            box-sizing: border-box;
-            font-family: inherit;
-        }
-
-        .form-textarea::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 30px;
-            background: linear-gradient(135deg, #F7C56E, #e6a800);
-            color: #0B1F3B;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .form-submit:hover {
-            transform: scale(1.02);
-        }
+        
     </style>
 </head>
 <body>
@@ -545,30 +452,6 @@
         <h1>Բարի գալուստ</h1>
         <h2>Վանաձորի N4 հիմնական դպրոցի</h2>
         <p>Պաշտոնական կայք</p>
-    </div>
-
-    <!-- ====== CONTACT SECTION ====== -->
-    <div class="section-contact">
-        <div class="contact-container">
-            <h2 class="contact-title">📩 Կապ մեզ հետ</h2>
-            <p class="contact-subtitle">Լրացրեք ձևը և մենք կպատասխանենք որքան հնարավոր է շուտ</p>
-            
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Շնորհակալություն! Ձեր հաղորդագրությունն ուղարկված է։');">
-                <div class="form-group">
-                    <label class="form-label">Անուն</label>
-                    <input type="text" class="form-input" placeholder="Ձեր անունը" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Էլ․ հասցե</label>
-                    <input type="email" class="form-input" placeholder="Ձեր էլ․ հասցեն" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Հաղորդագրություն</label>
-                    <textarea rows="4" class="form-textarea" placeholder="Ձեր հաղորդագրությունը..." required></textarea>
-                </div>
-                <button type="submit" class="form-submit">Ուղարկել →</button>
-            </form>
-        </div>
     </div>
 
     <p class="official-name">Վանաձորի Ա. Ս. Պուշկինի անվան N4 հիմնական դպրոց</p>
