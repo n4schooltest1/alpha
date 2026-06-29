@@ -12,18 +12,22 @@
             box-sizing: border-box;
         }
 
+
         html, body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            overflow-x: hidden;
+            min-height: 100%;
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
-        body {
-            background: url("https://images.unsplash.com/photo-1614292264554-7dca1d6466d6?q=80&w=1200&auto=format&fit=crop") no-repeat center center / cover;
-            position: relative;
+        body{
+            min-height:100vh;
+            background-image: url("https://images.unsplash.com/photo-1614292264554-7dca1d6466d6?q=80&w=1200&auto=format&fit=crop");
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+            background-attachment:scroll;
         }
+
+    
 
         body::before {
             content: "";

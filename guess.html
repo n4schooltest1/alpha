@@ -386,7 +386,7 @@ function changetumbs(clickedThumb) {
 
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -455,4 +455,237 @@ function changetumbs(clickedThumb) {
 
 
 
+</html>
+ -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start and Stop Timer</title>
+
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #1e293b, #0f172a);
+    }
+
+    .Timer-Container{
+        background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(10px);
+        padding: 40px;
+        border-radius: 34px;
+        text-align: center;
+        min-width: 500px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        position: relative;
+        bottom: 50px;
+    }
+
+    #num{
+        font-size: 90px;
+        color: white;
+        margin-bottom: 40px;
+        letter-spacing: 5px;
+    }
+
+    .Buttons{
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    button{
+        border: none;
+        padding: 14px 28px;
+        border-radius: 12px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    button:hover{
+        transform: translateY(-3px);
+    }
+
+    .Start{
+        background: #22c55e;
+        color: white;
+    }
+
+    .Stop{
+        background: #f59e0b;
+        color: white;
+    }
+
+    .Reset{
+        background: #ef4444;
+        color: white;
+    }
+
+    .FixMoment{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        background: #3b82f6;
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+        transition: 0.2s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .FixMoment:hover{
+        transform: translateY(-3px);
+    }
+
+    .fixed_moments{
+        width: 260px;             
+        min-height: 120px;        
+
+        margin: 15px auto 25px;   
+
+        background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(10px);
+
+        border-radius: 34px;
+        padding: 20px;
+
+        color: white;
+        text-align: center;        
+
+        max-height: 120px;
+        overflow-y: auto; 
+    }
+    </style>
+</head>
+<body>
+    <div class="Timer-Container">
+        <h2 id="num">00:00:000</h2>
+
+        <div class="fixed_moments" id="fix_mom">
+
+        </div>
+
+
+        <div class="Buttons">
+            <button class="Start" onclick="Start_timer()">Start</button>
+            <button class="Stop" onclick="Stop_timer()">Stop</button>
+            <button class="Reset" onclick="Reset_timer()">Reset</button>
+            <button class="FixMoment" onclick="fix_moment()">📌</button>
+        </div>
+    </div>
+
+
+
+  <script>
+
+    let num = document.getElementById("num");
+    let fixed_moment = document.getElementById("fix_mom");
+
+    let minutes = 0;
+    let seconds = 0;
+    let milliseconds = 0;
+
+    let momentCount = 0;
+
+    let timer;
+    let running = false;
+    let startTime = 0;
+    let elapsedTime = 0;
+
+    function updateDisplay() {
+        num.innerHTML = 
+        minutes.toString().padStart(2, "0") + ":" +
+        seconds.toString().padStart(2, "0") + ":" +
+        milliseconds.toString().padStart(3, "0");
+    }
+
+    updateDisplay();
+
+    function Start_timer() {
+        if (!running) {
+            running = true;
+            startTime = Date.now() - elapsedTime; 
+            
+            timer = setInterval(function () {
+                let now = Date.now();
+                elapsedTime = now - startTime;
+                
+              
+                let totalMilliseconds = elapsedTime;
+                
+                minutes = Math.floor(totalMilliseconds / 60000);
+                totalMilliseconds %= 60000;
+                
+                seconds = Math.floor(totalMilliseconds / 1000);
+                totalMilliseconds %= 1000;
+                
+                milliseconds = Math.floor(totalMilliseconds);
+                
+                updateDisplay();
+            }, 10); 
+        }
+    }
+
+    function Stop_timer() {
+        clearInterval(timer);
+        running = false;
+        
+    }
+
+    function Reset_timer() {
+        clearInterval(timer);
+        
+        minutes = 0;
+        seconds = 0;
+        milliseconds = 0;
+        elapsedTime = 0;
+        startTime = 0;
+        
+        updateDisplay();
+        running = false;
+
+        fix_mom.innerHTML = "";
+
+        momentCount = 0;
+    }
+
+    function fix_moment (){
+         let moment = document.createElement("p");
+
+        
+        if (running == true) {
+             moment.innerHTML = 
+            minutes.toString().padStart(2, "0") + ":" +
+            seconds.toString().padStart(2, "0") + ":" +
+            milliseconds.toString().padStart(3, "0");
+
+            fix_mom.appendChild(moment);
+            momentCount++;
+        }
+    }
+    
+        
+    
+
+</script>
+</body>
 </html>
